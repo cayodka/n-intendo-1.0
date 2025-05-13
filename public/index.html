@@ -51,7 +51,6 @@
     </div>
   </div>
 
-
   <div id="consoles">
     <div class="cardConsole">
       <img class="fotoConsole" alt="Imagem do Console">
@@ -67,7 +66,6 @@
       <a class="btnInfo">Informações</a>
     </div>
   </div>
-
 
   <div id="casacos">
     <div class="cardCasacos">
@@ -98,7 +96,6 @@
       <a class="btnInfo">Informações</a>
     </div>
   </div>
-
 
   <div id="background"></div>
 
@@ -145,43 +142,75 @@
             card.querySelector(".btnInfo").onclick = (e) => {
               e.stopPropagation();
 
-
               const overlay = document.createElement("div");
               overlay.style.position = "fixed";
               overlay.style.top = "0";
               overlay.style.left = "0";
               overlay.style.width = "100vw";
-              overlay.style.overflow = "hidden"
               overlay.style.height = "100vh";
               overlay.style.background = "rgba(0, 0, 0, 0.7)";
               overlay.style.display = "flex";
               overlay.style.alignItems = "center";
-              overlay.style.textAlign = "center";
               overlay.style.justifyContent = "center";
               overlay.style.zIndex = "9999";
-
+              overlay.style.padding = "1rem"; 
 
               const clone = card.cloneNode(true);
               const infoBtn = clone.querySelector(".btnInfo");
               if (infoBtn) infoBtn.remove();
-
-
-              clone.style.transform = "scale(1.2)";
-              clone.style.background = "#red";
-              clone.style.borderRadius = "12px";
-              clone.style.padding = "20px";
-              clone.style.boxShadow = "0 0 50px red";
+              
+              clone.style = "";
+              
+              clone.style.display = "flex";
+              clone.style.flexDirection = "row";
+              clone.style.gap = "3rem";
+              clone.style.background = "white";
+              clone.style.borderRadius = "15px";
+              clone.style.padding = "2rem";
+              clone.style.boxShadow = "0 0 40px red";
+              clone.style.maxWidth = "600px";
+              clone.style.width = "90%";
               clone.style.overflow = "hidden";
+              clone.style.position = "relative";
+              clone.style.color = "black";
+              
+              const img = clone.querySelector("img");
+              if (img) {
+                img.style.width = "200px";
+                img.style.height = "auto";
+                img.style.objectFit = "contain";
+                img.style.borderRadius = "10px";
+              }
+              
+              const contentWrapper = document.createElement("div");
+              contentWrapper.style.display = "flex";
+              contentWrapper.style.flexDirection = "column";
+              contentWrapper.style.justifyContent = "space-between";
+              contentWrapper.style.flex = "1";
+              contentWrapper.style.textAlign = "left";
+              
+              Array.from(clone.children).forEach(child => {
+                if (child !== img) {
+                  contentWrapper.appendChild(child);
+                }
+              });
+              
+              clone.innerHTML = "";
+              clone.appendChild(img);
+              clone.appendChild(contentWrapper);
 
+              overlay.appendChild(clone);
+              
+              overlay.addEventListener("click", () => overlay.remove());
+              
+              document.body.appendChild(overlay);
 
               overlay.appendChild(clone);
               document.body.appendChild(overlay);
 
-
               overlay.addEventListener("click", () => {
                 overlay.remove();
               });
-
 
               clone.addEventListener("click", (ev) => {
                 ev.stopPropagation();
@@ -355,7 +384,6 @@
       h1casaco.style.visibility = "visible";
       casacoDiv.style.visibility = "visible";
     })
-
 
   </script>
 </body>
