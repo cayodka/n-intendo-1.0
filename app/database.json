@@ -1,0 +1,27 @@
+[
+  {
+    "titulo": "Zelda: Skyward Sword HD",
+    "preco": "R$ 299,90",
+    "descricao": "Reviva a aventura épica de Link em alta definição! Skyward Sword HD traz gráficos aprimorados, controles refinados e a emocionante jornada que originou a lenda.",
+    "imagem": "images/games/zelda-skyward.png"
+  },
+  {
+    "titulo": "Zelda: Tears of the Kingdom",
+    "preco": "R$ 349,90",
+    "descricao": "Explore os céus e as profundezas de Hyrule. Mecânicas inovadoras, como manipulação de objetos e criação de veículos.",
+    "imagem": "images/games/zelda-tears.jpg"
+  },
+  {
+    "titulo": "Zelda: Link’s Awakening",
+    "preco": "R$ 279,90",
+    "descricao": "Remake do clássico do Game Boy com visuais estilo diorama e jogabilidade modernizada.",
+    "imagem": "images/games/zelda-awakening.jpg"
+  },
+  {
+    "titulo": "Zelda: Echoes of Wisdom",
+    "preco": "R$ 319,90",
+    "descricao": "Jogue como a Princesa Zelda com o Cetro da Sabedoria em uma aventura inédita cheia de puzzles.",
+    "imagem": "images/games/zelda-echoes.jpg"
+  }
+
+]

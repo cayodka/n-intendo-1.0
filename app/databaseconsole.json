@@ -1,0 +1,14 @@
+[
+  {
+    "titulo": "Nintendo Switch (Modelo OLED – 64GB)",
+    "preco": "R$ 2.699,90",
+    "descricao": "Tela vibrante de 7\", dock com porta LAN integrada e áudio aprimorado. Perfeito para jogar em casa ou na rua, com a versatilidade que só o Switch proporciona. Inclui Joy-Cons coloridos.",
+    "imagem": "images/consoles/switch-oled.png"
+  },
+  {
+    "titulo": "Nintendo Switch 2 (Pré-venda – Edição Limitada)",
+    "preco": "R$ 3.999,90",
+    "descricao": "Sucessor do Switch com hardware de próxima geração, retrocompatibilidade, gráficos em 4K e jogos exclusivos. Garanta o seu e receba um pôster exclusivo de The Legend of Zelda!",
+    "imagem": "images/consoles/switch2-limited.png"
+  }
+]

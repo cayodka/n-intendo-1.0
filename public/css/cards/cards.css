@@ -1,0 +1,185 @@
+#h1jogos, #h1console, #h1casaco{
+    color: red;
+    font-size: 30px;
+    z-index: 3;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+}
+
+#jogos {
+    visibility: hidden;
+    background-color: rgb(255, 255, 255);
+    height: 20rem;
+    width: 65rem;
+    position: absolute;
+    top: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.card {
+    background-color: rgb(226, 226, 226);
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    align-items: center;
+    justify-content: center;
+    height: 22rem;
+    width: 12rem;
+}
+
+.card:hover {
+    transform: scale(1.1);
+    background-color: red;
+    color: whitesmoke;
+    border-radius: 10px 0px 10px 0px;
+    z-index: 3;
+    filter: drop-shadow(1px 1px 10px 50px red);
+    box-shadow: 1px 1px 40px 10px red;
+}
+
+.fotoCard {
+    height: 14rem;
+    width: 10rem;
+}
+
+.btnInfo {
+    font-size: 1rem;
+    color: white;
+    background-color: black;
+    padding: 0.5rem 1rem;
+    margin-top: 0.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btnInfo:hover {
+    background-color: darkred;
+}
+
+#consoles {
+    display: flex;
+    height: 20rem;
+    width: 40rem;
+    visibility: hidden;
+    position: absolute;
+    top: 4rem;
+    z-index: 4;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2rem;
+    background-color: rgb(255, 255, 255);
+}
+
+.cardConsole {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    background-color: rgb(226, 226, 226);
+    height: 20rem;
+    width: 25rem;
+    align-items: center;
+    text-align: center;
+}
+
+.cardConsole:hover {
+    transform: scale(1.1);
+    background-color: red;
+    color: whitesmoke;
+    border-radius: 10px 0px 10px 0px;
+    z-index: 3;
+    filter: drop-shadow(1px 1px 10px 50px red);
+    box-shadow: 1px 1px 40px 10px red;
+}
+
+
+#casacos {
+    visibility: hidden;
+    background-color: rgb(255, 255, 255);
+    height: 20rem;
+    width: 65rem;
+    position: absolute;
+    top: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.cardCasacos {
+    background-color: rgb(226, 226, 226);
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    align-items: center;
+    justify-content: center;
+    height: 20rem;
+    width: 15rem;
+}
+
+.cardCasacos:hover {
+    transform: scale(1.1);
+    background-color: red;
+    color: whitesmoke;
+    border-radius: 10px 0px 10px 0px;
+    z-index: 3;
+    filter: drop-shadow(1px 1px 10px 50px red);
+    box-shadow: 1px 1px 40px 10px red;
+}
+
+.fotoCard {
+    height: 14rem;
+    width: 10rem;
+}
+
+@media (max-width: 600px) {
+    #h1jogos, #h1console, #h1casaco {
+        font-size: 1.2rem;
+        text-align: center;
+        top: 1rem;
+    }
+
+    #jogos,
+    #casacos,
+    #consoles {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        overflow-y: auto;
+        gap: 1rem;
+        width: 90%;
+        height: auto;
+        top: 0rem;
+        padding: 1rem 0;
+        top: 4rem;
+        position: absolute;
+    }
+
+
+
+    .card,
+    .cardCasacos,
+    .cardConsole {
+        width: 90%;
+        height: auto;
+        padding: 1rem;
+    }
+
+    .fotoCard {
+        width: 100%;
+        height: auto;
+        max-height: 12rem;
+        object-fit: contain;
+    }
+
+    .btnInfo {
+        font-size: 0.9rem;
+        width: 100%;
+        padding: 0.4rem;
+    }
+}

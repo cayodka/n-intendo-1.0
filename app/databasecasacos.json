@@ -1,0 +1,26 @@
+[
+  {
+    "titulo": "Casaco Super Mario – Cinza",
+    "preco": "R$ 189,90",
+    "descricao": "Estilo casual com o icônico bigode do Mario bordado no peito. Confortável e resistente — perfeito para fãs do encanador mais famoso do mundo dos games.",
+    "imagem": "/images/hoodies/super-mario.png"
+  },
+  {
+    "titulo": "Casaco GameCube – Preto",
+    "preco": "R$ 179,90",
+    "descricao": "Homenagem ao clássico console da Nintendo, com o logo GameCube estampado nas costas. Ideal para quem ama o design retrô e a nostalgia dos anos 2000.",
+    "imagem": "/images/hoodies/gamecube.png"
+  },
+  {
+    "titulo": "Casaco The Legend of Zelda – Preto",
+    "preco": "R$ 199,90",
+    "descricao": "Estilo minimalista com o símbolo da Triforce discretamente posicionado no bolso. Perfeito para heróis de Hyrule que preferem um visual sofisticado e geek.",
+    "imagem": "/images/hoodies/zelda.png"
+  },
+  {
+    "titulo": "Casaco Kirby – Azul Bebê",
+    "preco": "R$ 169,90",
+    "descricao": "Fofo e confortável, com uma pequena estampa do Kirby sorridente no coração. Leve como uma nuvem — ideal para dias descontraídos!",
+    "imagem": "/images/hoodies/kirby.png"
+  }
+]

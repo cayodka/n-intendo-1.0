@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ñ-intendo</title>
+  <link rel="stylesheet" href="/css/main/main.css">
+  <link rel="icon" href="/images/icons/cogumelo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=PT+Sans+Narrow:wght@400;700&family=Pixelify+Sans:wght@400..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Smooch+Sans:wght@100..900&family=VT323&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <h1 id="h1inicial">- Bem-vindo á -</h1>
+  <h1 id="h1jogos">- Jogos -</h1>
+  <h1 id="h1console">- Console -</h1>
+  <h1 id="h1casaco">- Casacos -</h1>
+  <div id="telaInicial">Ñ-intendo</div>
+
+  <div id="jogos">
+    <div class="card">
+      <img class="fotoCard" alt="Imagem do Jogo">
+      <a class="nomeCard"></a>
+      <a class="valorCard"></a>
+      <a class="btnInfo">Informações</a>
+    </div>
+
+    <div class="card">
+      <img class="fotoCard" alt="Imagem do Jogo">
+      <a class="nomeCard"></a>
+      <a class="valorCard"></a>
+      <a class="btnInfo">Informações</a>
+    </div>
+
+    <div class="card">
+      <img class="fotoCard" alt="Imagem do Jogo">
+      <a class="nomeCard"></a>
+      <a class="valorCard"></a>
+      <a class="btnInfo">Informações</a>
+    </div>
+
+    <div class="card">
+      <img class="fotoCard" alt="Imagem do Jogo">
+      <a class="nomeCard"></a>
+      <a class="valorCard"></a>
+      <a class="btnInfo">Informações</a>
+    </div>
+  </div>
+
+
+  <div id="consoles">
+    <div class="cardConsole">
+      <img class="fotoConsole" alt="Imagem do Console">
+      <a class="nomeConsole"></a>
+      <a class="valorConsole"></a>
+      <a class="btnInfo">Informações</a>
+    </div>
+
+    <div class="cardConsole">
+      <img class="fotoConsole" alt="Imagem do Console">
+      <a class="nomeConsole"></a>
+      <a class="valorConsole"></a>
+      <a class="btnInfo">Informações</a>
+    </div>
+  </div>
+
+
+  <div id="casacos">
+    <div class="cardCasacos">
+      <img class="fotoCasaco" alt="Imagem do Jogo">
+      <a class="nomeCasaco"></a>
+      <a class="valorCasaco"></a>
+      <a class="btnInfo">Informações</a>
+    </div>
+
+    <div class="cardCasacos">
+      <img class="fotoCasaco" alt="Imagem do Jogo">
+      <a class="nomeCasaco"></a>
+      <a class="valorCasaco"></a>
+      <a class="btnInfo">Informações</a>
+    </div>
+
+    <div class="cardCasacos">
+      <img class="fotoCasaco" alt="Imagem do Jogo">
+      <a class="nomeCasaco"></a>
+      <a class="valorCasaco"></a>
+      <a class="btnInfo">Informações</a>
+    </div>
+
+    <div class="cardCasacos">
+      <img class="fotoCasaco" alt="Imagem do Jogo">
+      <a class="nomeCasaco"></a>
+      <a class="valorCasaco"></a>
+      <a class="btnInfo">Informações</a>
+    </div>
+  </div>
+
+
+  <div id="background"></div>
+
+  <button id="btmenu"></button>
+
+  <div id="menu" class="hidden">
+    <h1 id="home">Ñ-intendo</h1>
+    <a id="btjogos">Jogos °</a>
+    <a id="btconsole">Consoles °</a>
+    <a id="btcasaco">Casacos °</a>
+    <div id="promoção">PROMOÇÕES!</div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const btmenu = document.getElementById('btmenu');
+      const menu = document.getElementById('menu');
+
+      btmenu.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
+      });
+
+      document.addEventListener('click', () => {
+        menu.style.display = 'none';
+      });
+
+      menu.addEventListener('mouseover', (e) => {
+        e.stopPropagation();
+      })
+    });
+
+    fetch("/jogos")
+      .then(res => res.json())
+      .then(jogos => {
+        console.log(jogos);
+        const cards = document.querySelectorAll('#jogos .card');
+        jogos.forEach((jogo, index) => {
+          const card = cards[index];
+          if (card) {
+            card.querySelector(".fotoCard").src = jogo.imagem;
+            card.querySelector(".nomeCard").textContent = jogo.titulo;
+            card.querySelector(".valorCard").textContent = jogo.preco;
+            card.querySelector(".btnInfo").onclick = (e) => {
+              e.stopPropagation();
+
+
+              const overlay = document.createElement("div");
+              overlay.style.position = "fixed";
+              overlay.style.top = "0";
+              overlay.style.left = "0";
+              overlay.style.width = "100vw";
+              overlay.style.overflow = "hidden"
+              overlay.style.height = "100vh";
+              overlay.style.background = "rgba(0, 0, 0, 0.7)";
+              overlay.style.display = "flex";
+              overlay.style.alignItems = "center";
+              overlay.style.textAlign = "center";
+              overlay.style.justifyContent = "center";
+              overlay.style.zIndex = "9999";
+
+
+              const clone = card.cloneNode(true);
+              const infoBtn = clone.querySelector(".btnInfo");
+              if (infoBtn) infoBtn.remove();
+
+
+              clone.style.transform = "scale(1.2)";
+              clone.style.background = "#red";
+              clone.style.borderRadius = "12px";
+              clone.style.padding = "20px";
+              clone.style.boxShadow = "0 0 50px red";
+              clone.style.overflow = "hidden";
+
+
+              overlay.appendChild(clone);
+              document.body.appendChild(overlay);
+
+
+              overlay.addEventListener("click", () => {
+                overlay.remove();
+              });
+
+
+              clone.addEventListener("click", (ev) => {
+                ev.stopPropagation();
+              });
+            };
+          }
+        });
+      });
+
+    fetch("/console")
+      .then(res => res.json())
+      .then(consoles => {
+        const cards = document.querySelectorAll('#consoles .cardConsole');
+        consoles.forEach((consoleData, index) => {
+          const card = cards[index];
+          if (card) {
+            card.querySelector(".fotoConsole").src = consoleData.imagem;
+            card.querySelector(".nomeConsole").textContent = consoleData.titulo;
+            card.querySelector(".valorConsole").textContent = consoleData.preco;
+            card.querySelector(".btnInfo").onclick = (e) => {
+              e.stopPropagation();
+
+
+              const overlay = document.createElement("div");
+              overlay.style.position = "fixed";
+              overlay.style.top = "0";
+              overlay.style.left = "0";
+              overlay.style.width = "100vw";
+              overlay.style.height = "100vh";
+              overlay.style.background = "rgba(0, 0, 0, 0.7)";
+              overlay.style.display = "flex";
+              overlay.style.alignItems = "center";
+              overlay.style.justifyContent = "center";
+              overlay.style.zIndex = "9999";
+
+
+              const clone = card.cloneNode(true);
+              const infoBtn = clone.querySelector(".btnInfo");
+              if (infoBtn) infoBtn.remove();
+
+
+              clone.style.transform = "scale(1.2)";
+              clone.style.background = "#red";
+              clone.style.borderRadius = "12px";
+              clone.style.padding = "20px";
+              clone.style.boxShadow = "0 0 20px red";
+
+
+              overlay.appendChild(clone);
+              document.body.appendChild(overlay);
+
+
+              overlay.addEventListener("click", () => {
+                overlay.remove();
+              });
+
+
+              clone.addEventListener("click", (ev) => {
+                ev.stopPropagation();
+              });
+            };
+          }
+        });
+      });
+
+    fetch("/casacos")
+      .then(res => res.json())
+      .then(consoles => {
+        const cards = document.querySelectorAll('#casacos .cardCasacos');
+        consoles.forEach((consoleData, index) => {
+          const card = cards[index];
+          if (card) {
+            card.querySelector(".fotoCasaco").src = consoleData.imagem;
+            card.querySelector(".nomeCasaco").textContent = consoleData.titulo;
+            card.querySelector(".valorCasaco").textContent = consoleData.preco;
+            card.querySelector(".btnInfo").onclick = (e) => {
+              e.stopPropagation();
+
+
+              const overlay = document.createElement("div");
+              overlay.style.position = "fixed";
+              overlay.style.top = "0";
+              overlay.style.left = "0";
+              overlay.style.width = "100vw";
+              overlay.style.height = "100vh";
+              overlay.style.background = "rgba(0, 0, 0, 0.7)";
+              overlay.style.display = "flex";
+              overlay.style.alignItems = "center";
+              overlay.style.justifyContent = "center";
+              overlay.style.zIndex = "9999";
+
+
+              const clone = card.cloneNode(true);
+              const infoBtn = clone.querySelector(".btnInfo");
+              if (infoBtn) infoBtn.remove();
+
+
+              clone.style.transform = "scale(1.2)";
+              clone.style.background = "#red";
+              clone.style.borderRadius = "12px";
+              clone.style.padding = "20px";
+              clone.style.boxShadow = "0 0 20px red";
+
+
+              overlay.appendChild(clone);
+              document.body.appendChild(overlay);
+
+
+              overlay.addEventListener("click", () => {
+                overlay.remove();
+              });
+
+
+              clone.addEventListener("click", (ev) => {
+                ev.stopPropagation();
+              });
+            };
+          }
+        });
+      });
+
+
+
+    const h1inicial = document.getElementById("h1inicial");
+    const h1jogos = document.getElementById("h1jogos");
+    const h1console = document.getElementById("h1console");
+    const jogosDiv = document.getElementById("jogos");
+    const btjogos = document.getElementById("btjogos");
+    const home = document.getElementById("home");
+    const btConsole = document.getElementById("btconsole")
+    const consoleDiv = document.getElementById("consoles");
+    const h1casaco = document.getElementById("h1casaco");
+    const btCasaco = document.getElementById("btcasaco");
+    const casacoDiv = document.getElementById("casacos");
+
+    btjogos.addEventListener("click", () => {
+      h1inicial.style.visibility = "hidden";
+      h1jogos.style.visibility = "visible";
+      h1console.style.visibility = "hidden"
+      jogosDiv.style.visibility = "visible";
+      consoleDiv.style.visibility = "hidden";
+      h1casaco.style.visibility = "hidden";
+      casacoDiv.style.visibility = "hidden";
+    });
+
+    home.addEventListener("click", () => {
+      jogosDiv.style.visibility = "hidden";
+      h1inicial.style.visibility = "visible";
+      h1jogos.style.visibility = "hidden";
+      consoleDiv.style.visibility = "hidden";
+      h1casaco.style.visibility = "hidden";
+      casacoDiv.style.visibility = "hidden";
+    })
+
+    btConsole.addEventListener("click", () => {
+      consoleDiv.style.visibility = "visible";
+      h1console.style.visibility = "visible"
+      jogosDiv.style.visibility = "hidden";
+      h1inicial.style.visibility = "hidden";
+      h1jogos.style.visibility = "hidden";
+      h1casaco.style.visibility = "hidden";
+      casacoDiv.style.visibility = "hidden";
+    })
+
+    btCasaco.addEventListener("click", () => {
+      consoleDiv.style.visibility = "hidden";
+      h1console.style.visibility = "hidden"
+      jogosDiv.style.visibility = "hidden";
+      h1inicial.style.visibility = "hidden";
+      h1jogos.style.visibility = "hidden";
+      h1casaco.style.visibility = "visible";
+      casacoDiv.style.visibility = "visible";
+    })
+
+
+  </script>
+</body>
+
+</html>
